@@ -62,5 +62,5 @@ regularization = "%s"
     '''%(run_name, model_name, model_is_pretrained, num_classes, optimizer_name, lr, augmentation, regularization)
     print(config_str)
     os.makedirs("./outputs/runs/%s"%run_name, exist_ok=True)
-    with open("./outputs/runs/%s/config"%run_name, "w") as f:
+    with open("./outputs/runs/%s/config.txt"%run_name, "w") as f:
         f.write(config_str)
