@@ -40,26 +40,25 @@ import os
 
 
 def save_config(run_name, model_name, model_is_pretrained, num_classes, optimizer_name, lr, augmentation, regularization):
-    config_str = '''
-    # Run name
-    run_name = "%s"
+    config_str = '''# Run name
+run_name = "%s"
 
-    # Network architecture
-    # mlp, resnet18, resnet50, vgg11
-    model_name = "%s"
-    model_is_pretrained = %s
-    num_classes = %s
+# Network architecture
+# mlp, resnet18, resnet50, vgg11
+model_name = "%s"
+model_is_pretrained = %s
+num_classes = %s
 
-    # Optimizer
-    # SGD, Adagrad, Adam
-    optimizer_name = "%s"
-    lr = %f
+# Optimizer
+# SGD, Adagrad, Adam
+optimizer_name = "%s"
+lr = %f
 
-    # Data augmentation
-    augmentation = "%s"
+# Data augmentation
+augmentation = "%s"
 
-    # Regularization
-    regularization = "%s"
+# Regularization
+regularization = "%s"
     '''%(run_name, model_name, model_is_pretrained, num_classes, optimizer_name, lr, augmentation, regularization)
     print(config_str)
     os.makedirs("./outputs/runs/%s"%run_name, exist_ok=True)

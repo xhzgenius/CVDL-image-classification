@@ -6,18 +6,19 @@ class MyMLP(torch.nn.Module):
     def __init__(self, input_dim: int, output_dim: int):
         super(MyMLP, self).__init__()
         self.layers = torch.nn.Sequential(
-            torch.nn.Linear(input_dim, 8192), 
+            torch.nn.Flatten(), 
+            torch.nn.Linear(input_dim, 2048), 
             torch.nn.ReLU(), 
-            torch.nn.LayerNorm(), 
-            torch.nn.Linear(8192, 2048), 
+            torch.nn.LayerNorm((2048)), 
+            torch.nn.Linear(2048, 2048), 
             torch.nn.ReLU(), 
-            torch.nn.LayerNorm(), 
+            torch.nn.LayerNorm((2048)), 
             torch.nn.Linear(2048, 512), 
             torch.nn.ReLU(), 
-            torch.nn.LayerNorm(), 
+            torch.nn.LayerNorm((512)), 
             torch.nn.Linear(512, 128), 
             torch.nn.ReLU(), 
-            torch.nn.LayerNorm(), 
+            torch.nn.LayerNorm((128)), 
             torch.nn.Linear(128, output_dim)
         )
     
