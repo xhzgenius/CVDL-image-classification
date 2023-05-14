@@ -24,6 +24,8 @@ def label_int2str(label_id: int) -> str:
 import numpy as np
 from scipy.optimize import linear_sum_assignment as linear_assignment
 from sklearn import metrics
+
+
 def clustering_accuracy(y_true, y_pred):
     cm = metrics.confusion_matrix(y_true, y_pred)
     _make_cost_m = lambda x:-x + np.max(x)
@@ -33,3 +35,33 @@ def clustering_accuracy(y_true, y_pred):
     cm2 = cm[:, js]
     acc = np.trace(cm2) / np.sum(cm2)
     return acc
+
+import os
+
+
+def save_config(run_name, model_name, model_is_pretrained, num_classes, optimizer_name, lr, augmentation, regularization):
+    config_str = '''
+    # Run name
+    run_name = "%s"
+
+    # Network architecture
+    # mlp, resnet18, resnet50, vgg11
+    model_name = "%s"
+    model_is_pretrained = %s
+    num_classes = %s
+
+    # Optimizer
+    # SGD, Adagrad, Adam
+    optimizer_name = "%s"
+    lr = %f
+
+    # Data augmentation
+    augmentation = "%s"
+
+    # Regularization
+    regularization = "%s"
+    '''%(run_name, model_name, model_is_pretrained, num_classes, optimizer_name, lr, augmentation, regularization)
+    print(config_str)
+    os.makedirs("./outputs/runs/%s"%run_name, exist_ok=True)
+    with open("./outputs/runs/%s/config"%run_name, "w") as f:
+        f.write(config_str)
