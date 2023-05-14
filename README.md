@@ -2,29 +2,38 @@
 
  CVDL课程平时作业1：自然景观图像分类
 
-## 一、作业任务
+#### README
+
+##### 代码结构概述：
+
+- `classic_methods.ipynb` 传统算法，可以直接运行
+- `deep_methods.ipynb` 深度学习方法，可以直接运行
+- `dataset.py` 自定义的数据集类，用于传统算法，无需运行
+- `utils.py` 几个功能函数，无需运行
+- `my_mlp.py` 自定义的MLP模型结构，无需运行
+
+##### 参数设置：
+
+`deep_methods.ipynb` 中，有一个单独的cell可以设置所有的参数，包括网络架构、优化器、学习率、数据增强和预处理、正则化等。
+
+
+
+#### 以下为原始作业要求：
+
+##### 一、作业任务
 
 课程作业采用在线竞赛平台Kaggle，请通过以下链接访问自然景观图像分类的竞赛：
 https://www.kaggle.com/datasets/puneet6060/intel-image-classification
 
 本任务需要大家预测6种自然景观的种类。数据集共有25k张图像。要求同学们建立模型，在给定的测试集上进行预测。
 
-## 二、实现要求
+##### 二、实现要求
 
 针对给定的分类数据集，每位同学需要分别实现基于传统算法和深度学习方法的分类模型：
 
 传统算法：对比不同的特征提取 + 分类器组合
 特征提取：SIFT、HOG等
 分类器：SVM、kernel SVM、k-means clustering等
-
-结果：
-
-* Accuracy of SIFT & SVM: 0.5571285571285571
-* Accuracy of SIFT & Kernel-SVM: 0.7277992277992278
-* Accuracy of SIFT & k-means: 0.33697983697983697
-* Accuracy of HOG & SVM: 0.7166452166452166
-* Accuracy of HOG & Kernel-SVM: 0.8787358787358788
-* Accuracy of HOG & k-means: 0.389031889031889
 
 深度学习方法：对比网络架构、优化器、数据增强和预处理、正则化等方面不同的设定
 网络架构：MLP、VGG、ResNet等
@@ -35,7 +44,7 @@ https://www.kaggle.com/datasets/puneet6060/intel-image-classification
 红色部分是必须完成的对比项目，有兴趣的同学也可以探索其他设定（如损失函数、BN）对模型性能的影响。以上内容可以调取
 已有的算法包，不必从头实现。
 
-## 三、提交要求
+##### 三、提交要求
 
 实现分类模型并在线评测结果
 
